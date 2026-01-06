@@ -1,0 +1,23 @@
+{
+  "name": "odin_testing_practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blade21Shade/ODIN_Testing_Practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blade21Shade/ODIN_Testing_Practice/issues"
+  },
+  "homepage": "https://github.com/Blade21Shade/ODIN_Testing_Practice#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
