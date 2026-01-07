@@ -10,6 +10,10 @@ describe("capitalize(s) tests", () => {
     });
 
     describe("Throw error tests", () => {
+        test("Nothing: -> Error", () => {
+            expect(()=>{toTest.capitalize()}).toThrow();
+        });
+        
         test("Number: 1 -> Error", () => {
             expect(()=>{toTest.capitalize(1)}).toThrow(); // toThrow needs expect() to use a wrapper, otherwise the error is just thrown normally
         });
@@ -34,6 +38,10 @@ describe("reverseString(s) tests", () => {
     });
 
     describe("Throw error tests", () => {
+        test("Nothing: -> Error", () => {
+            expect(()=>{toTest.reverseString()}).toThrow();
+        });
+        
         test("Number: 1 -> Error", () => {
             expect(()=>{toTest.reverseString(1)}).toThrow(); // toThrow needs expect() to use a wrapper, otherwise the error is just thrown normally
         });
