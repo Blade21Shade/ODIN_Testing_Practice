@@ -1,3 +1,5 @@
+let a = -5 % 1;
+
 function capitalize(s) {
     if (typeof(s) !== 'string') {
         throw new Error("capitalize() only takes a string as input")
@@ -55,6 +57,10 @@ function caesarCipher(message, shift) {
     if (typeof(shift) !== 'number') {
         throw new Error("shift must be a number");
     }
+
+    if (shift % 1 !== 0) {
+        throw new Error("shift must be an integer")
+    }
     
     // Force shift into the alphabetical shift range
     shift = shift % 25;
@@ -62,10 +68,6 @@ function caesarCipher(message, shift) {
     // If shift is negative make it positive for straightforward use later
     if (shift < 0) {
         shift = 26 + shift; // + since shift is negative
-    }
-
-    if (shift % 1 !== 0) {
-        throw new Error("shift must be an integer")
     }
 
     if (shift === 0 ) {

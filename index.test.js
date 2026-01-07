@@ -153,7 +153,7 @@ describe("caesarCipher(message, shift) tests", () => {
         });
 
         test("Shift is float: abc , '0.5' -> Error", ()=> {
-            expect(()=>{toTest.caesarCipher('abc', 0.5)}).toThrow();
+            expect(()=>{toTest.caesarCipher('abc', 0.5)}).toThrow("shift must be an integer");
         });
 
         test("Shift is string: abc , '0' -> Error", ()=> {
