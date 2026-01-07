@@ -25,3 +25,19 @@ test("Capitalize test on array: [] -> Error", () => {
 test("Reverse should pass: ace -> eca", () => {
     expect(toTest.reverseString('ace')).toBe('eca');
 });
+
+test("Reverse test on empty string: '' -> ''", () => {
+    expect(toTest.reverseString('')).toBe('');
+});
+
+test("Reverse test on number: 1 -> Error", () => {
+    expect(()=>{toTest.reverseString(1)}).toThrow(); // toThrow needs expect() to use a wrapper, otherwise the error is just thrown normally
+});
+
+test("Reverse test on object: {} -> Error", () => {
+    expect(()=>{toTest.reverseString({})}).toThrow();
+});
+
+test("Reverse test on array: [] -> Error", () => {
+    expect(()=>{toTest.reverseString([])}).toThrow();
+});
