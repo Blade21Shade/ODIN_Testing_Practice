@@ -19,4 +19,32 @@ function reverseString(s) {
     return toReturn;
 }
 
-export {capitalize, reverseString}
+const calculator = {
+    add(a, b) {
+        this.inputValidation(a,b);
+        return a + b;
+    },
+
+    subtract(a, b) {
+        this.inputValidation(a,b);
+        return a - b;
+    },
+
+    multiply(a, b) {
+        this.inputValidation(a,b);
+        return a * b;
+    },
+
+    divide(a, b) {
+        this.inputValidation(a,b);
+        return a / b;
+    },
+
+    inputValidation(a, b) {
+        if (typeof(a) !== 'number' || typeof(b) !== 'number') {
+            throw new Error("calculator functions can only be called with numbers");
+        }
+    }
+}
+
+export {capitalize, reverseString, calculator}

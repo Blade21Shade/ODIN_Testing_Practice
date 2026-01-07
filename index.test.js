@@ -41,3 +41,40 @@ test("Reverse test on object: {} -> Error", () => {
 test("Reverse test on array: [] -> Error", () => {
     expect(()=>{toTest.reverseString([])}).toThrow();
 });
+
+// calculator object: add, subtract, multiply, divide
+test("Calculator Add, valid input: 1, 2 -> 3", () => {
+    expect(toTest.calculator.add(1, 2)).toBe(3);
+});
+
+test("Calculator Subtract, valid input: 1, 2 -> -1", () => {
+    expect(toTest.calculator.subtract(1, 2)).toBe(-1);
+});
+
+test("Calculator Multiply, valid input: 2, 3 -> 6", () => {
+    expect(toTest.calculator.multiply(2, 3)).toBe(6);
+});
+
+test("Calculator Divide, valid input: 6, 2 -> 3", () => {
+    expect(toTest.calculator.divide(6, 2)).toBe(3);
+});
+
+test("Calculator invalid input: '1', '2' -> Error", () => {
+    expect(() => {toTest.calculator.add('1', '2')}).toThrow();
+});
+
+test("Calculator invalid input: no parameters -> Error", () => {
+    expect(()=>{toTest.calculator.add()}).toThrow();
+});
+
+test("Calculator invalid input: 'a', 'b' -> Error", () => {
+    expect(()=>{toTest.calculator.add('a', 'b')}).toThrow();
+});
+
+test("Calculator invalid input: [], 1 -> Error", () => {
+    expect(()=>{toTest.calculator.add([], 1)}).toThrow();
+});
+
+test("Calculator invalid input: {}, 1 -> Error", () => {
+    expect(()=>{toTest.calculator.add({}, 1)}).toThrow();
+});
