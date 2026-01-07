@@ -109,4 +109,46 @@ function caesarCipher(message, shift) {
     return String.fromCharCode(...shiftedCharCodes);
 }
 
-export {capitalize, reverseString, calculator, caesarCipher}
+function analyzeArray(arr) {
+    // arr error handling
+    if (!Array.isArray(arr)) {
+        throw new Error("arr must be an Array object")
+    }
+    
+    if (arr.length === 0) {
+        throw new Error("arr must have entries");
+    }
+
+    const toReturn = {
+        average: 0,
+        min: Number.MAX_VALUE, // Start with max values instead of 0 so comparisons always work
+        max: Number.MAX_VALUE * -1,
+        length: 0
+    }
+
+    let sum = 0;
+    let len = arr.length;
+    for (let i = 0; i < arr.length; i++) {
+        let n = arr[i];
+        // Inner error handling
+        if (typeof(n) !== 'number') {
+            throw new Error("all entries in arr must be numbers");
+        }
+
+        sum += n;
+        if (toReturn.min > n) {
+            toReturn.min = n;
+        }
+
+        if (toReturn.max < n) {
+            toReturn.max = n;
+        }
+    }
+
+    toReturn.average = sum / len;
+    toReturn.length = len;
+    
+    return toReturn;
+}
+
+export {capitalize, reverseString, calculator, caesarCipher, analyzeArray}

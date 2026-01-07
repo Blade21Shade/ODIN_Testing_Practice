@@ -165,3 +165,45 @@ describe("caesarCipher(message, shift) tests", () => {
         });
     })
 });
+
+describe("analyzeArray(arr) tests", () => {
+    test("Basic: [1, 2, 3] -> {average: 2, min: 1, max: 3, length: 3}", () => {
+        expect(toTest.analyzeArray([1,2,3])).toEqual({average: 2, min: 1, max: 3, length: 3});
+    });
+
+    describe("Throw error tests", () => {
+        describe("Issue with arr", () => {
+            test("Non-array, number: 1 -> Error", () => {
+                expect(()=>{toTest.analyzeArray(1)}).toThrow();
+            });
+
+            test("Non-array, string: '1' -> Error", () => {
+                expect(()=>{toTest.analyzeArray('1')}).toThrow();
+            });
+
+            test("Non-array, object: {} -> Error", () => {
+                expect(()=>{toTest.analyzeArray({})}).toThrow();
+            });
+
+            // The error check for this is logically with the above tests, not when checking the entries, so I'm putting it here
+            test("Empty array: [] -> Error", () => {
+                expect(()=>{toTest.analyzeArray([])}).toThrow();
+            });
+        });
+
+        describe("Issue with arr at least 1 entry", () => {
+            test("String: [1, 'a', 2] -> Error", () => {
+                expect(()=>{toTest.analyzeArray([1, 'a', 2])}).toThrow();
+            });
+
+            test("Object: [1, {}, 2] -> Error", () => {
+                expect(()=>{toTest.analyzeArray([1, {}, 2])}).toThrow();
+            });
+
+            test("No value : [1, , 2] -> Error", () => {
+                expect(()=>{toTest.analyzeArray([1, , 2])}).toThrow();
+            });
+        });
+        
+    });    
+});
