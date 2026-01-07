@@ -6,4 +6,13 @@ function capitalize(s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-export {capitalize}
+function reverseString(s) {
+    let toReturn = '';
+    for (let i = 1; i <= s.length; i++) {
+        toReturn += s.at(-i);
+    }
+
+    return toReturn;
+}
+
+export {capitalize, reverseString}
