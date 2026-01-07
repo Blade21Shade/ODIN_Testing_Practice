@@ -1,5 +1,3 @@
-let a = -5 % 1;
-
 function capitalize(s) {
     if (typeof(s) !== 'string') {
         throw new Error("capitalize() only takes a string as input")
