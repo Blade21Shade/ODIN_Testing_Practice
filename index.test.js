@@ -65,10 +65,10 @@ describe("Calculator tests", () => {
         expect(toTest.calculator.divide(6, 2)).toBe(3);
     });
 
-    describe("Throw error tests", () => {
-        beforeAll(() => {
-            console.log("A helper function is used to validate input in each function, so each type of invalid input only needs tested once")
-        });
+    describe("Throw error tests\nA helper function is used to validate input in each function, so each type of invalid input only needs tested once", () => {
+        // beforeAll(() => I couldn't get this to work, so I've just thrown the notification into the describe for now 
+        //     console.log("A helper function is used to validate input in each function, so each type of invalid input only needs tested once")
+        // );
 
         test("No parameters: -> Error", () => {
             expect(()=>{toTest.calculator.add()}).toThrow();
