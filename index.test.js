@@ -91,3 +91,77 @@ describe("Calculator tests", () => {
         });
     });
 });
+
+describe("caesarCipher(message, shift) tests", () => {
+    // Basic
+    test("Basic lower case: abc, 1 -> bcd", ()=> {
+        expect(toTest.caesarCipher("abc", 1)).toBe("bcd");
+    });
+
+    test("Basic upper case: ABC, 1 -> BCD", ()=> {
+        expect(toTest.caesarCipher("ABC", 1)).toBe("BCD");
+    });
+
+    test("Basic mixed case: AbCd, 1 -> BcDe", ()=> {
+        expect(toTest.caesarCipher("AbCd", 1)).toBe("BcDe");
+    });
+
+    test("Basic punctuation: a bc'!, 1 -> b cd'!", ()=> {
+        expect(toTest.caesarCipher("a bc'!", 1)).toBe("b cd'!");
+    });
+    
+    
+    describe("Overflow", () => {
+        test("Overflow lower case: vwx, 4 -> zab", ()=> {
+            expect(toTest.caesarCipher("vwx", 4)).toBe("zab");
+        });
+
+        test("Overflow upper case: TUV, 12 -> FGH", ()=> {
+            expect(toTest.caesarCipher("TUV", 12)).toBe("FGH");
+        });
+
+        test("Overflow mixed case: wXyZ, 4 -> aBcD", ()=> {
+            expect(toTest.caesarCipher("wXyZ", 4)).toBe("aBcD");
+        });
+    });
+    
+    describe("Shift not in range 1-25", ()=> {
+        test("Shift 0: wXyZ, 0 -> wXyZ", ()=> {
+            expect(toTest.caesarCipher("wXyZ", 0)).toBe("wXyZ");
+        });
+
+        test("Shift 26: a, 26 -> b", ()=> {
+            expect(toTest.caesarCipher("a", 26)).toBe("b");
+        });
+
+        test("Shift -1: c, -1 -> b", ()=> {
+            expect(toTest.caesarCipher("c", -1)).toBe("b");
+        });
+
+        test("Shift -26: c, -1 -> b", ()=> {
+            expect(toTest.caesarCipher("c", -26)).toBe("b");
+        });
+    });
+    
+    describe("Throw error tests", () => {
+        test("Message is number: 1 , 0 -> Error", ()=> {
+            expect(()=>{toTest.caesarCipher(1, 0)}).toThrow();;
+        });
+
+        test("Message is object: {} , 0 -> Error", ()=> {
+            expect(()=>{toTest.caesarCipher({}, 0)}).toThrow();;
+        });
+
+        test("Shift is float: abc , '0.5' -> Error", ()=> {
+            expect(()=>{toTest.caesarCipher('abc', 0.5)}).toThrow();
+        });
+
+        test("Shift is string: abc , '0' -> Error", ()=> {
+            expect(()=>{toTest.caesarCipher('abc', '0')}).toThrow();
+        });
+
+        test("Shift is object: abc , {}' -> Error", ()=> {
+            expect(()=>{toTest.caesarCipher('abc', {})}).toThrow();
+        });
+    })
+});
