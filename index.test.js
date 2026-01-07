@@ -1,5 +1,6 @@
 import * as toTest from "./index.js";
 
+// capitalize(s)
 test("Capitalize should pass: ace -> Ace", () => {
     expect(toTest.capitalize('ace')).toBe('Ace');
 });
@@ -18,4 +19,9 @@ test("Capitalize test on object: {} -> Error", () => {
 
 test("Capitalize test on array: [] -> Error", () => {
     expect(()=>{toTest.capitalize([])}).toThrow();
+});
+
+// reverseString(s)
+test("Reverse should pass: ace -> eca", () => {
+    expect(toTest.reverseString('ace')).toBe('eca');
 });
